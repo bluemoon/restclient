@@ -85,7 +85,7 @@ check_expect(Status, Expect) ->
     lists:member(Status, Expect).
 
 encode_body(json, Body) ->
-    jsx:encode(Body);
+    jsx:term_to_json(Body);
 encode_body(percent, Body) ->
     mochiweb_util:urlencode(Body);
 encode_body(xml, Body) ->
